@@ -6,16 +6,19 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 18:14:29 by keisuke           #+#    #+#             */
-/*   Updated: 2022/01/05 18:39:53 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/01/11 16:50:39 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include <stdio.h>
+#include <string.h>
+*/
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -43,12 +46,12 @@ int	main(void)
 	char	src[] = "keisuke";
 	char	dest[256];
 	char	test[256];
-	unsigned int	num;
+	size_t	num;
 
 	num = ft_strlcpy(dest, src, 1);
-	printf("src: %s, dest: %s, num: %d\n", src, dest, num);
+	printf("src: %s, dest: %s, num: %zu\n", src, dest, num);
 	num = strlcpy(test, src, 1);
-	printf("src: %s, test: %s, num: %d\n", src, test, num);
+	printf("src: %s, test: %s, num: %zu\n", src, test, num);
 	return (0);
 }
 */
