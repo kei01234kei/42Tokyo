@@ -6,11 +6,11 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 18:03:44 by keisuke           #+#    #+#             */
-/*   Updated: 2022/01/04 18:07:47 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/02/14 02:50:46 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
+#include "libft.h"
 
 int	ft_isprint(char c)
 {
@@ -19,13 +19,3 @@ int	ft_isprint(char c)
 	else
 		return (0);
 }
-
-/*
-int	main(void)
-{
-	printf("%d\n", ft_isprint('a'));
-	printf("%d\n", ft_isprint(' '));
-	printf("%d\n", ft_isprint('~'));
-	return (0);
-}
-*/

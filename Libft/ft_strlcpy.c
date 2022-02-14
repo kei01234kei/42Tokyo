@@ -6,29 +6,19 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 18:14:29 by keisuke           #+#    #+#             */
-/*   Updated: 2022/01/11 16:50:39 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/02/14 03:13:00 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include <stdio.h>
-#include <string.h>
-*/
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 0;
+	i = ft_strlen(src);
 	j = 0;
-	if (size == 0 || src[0] == '\0')
-	{
-		dest[0] = '\0';
-		while (src[i] != '\0')
-			i++;
-		return (i);
-	}
 	while (j < size - 1 && src[j] != '\0')
 	{
 		dest[j] = src[j];
