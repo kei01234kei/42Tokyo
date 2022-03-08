@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 18:14:29 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 01:55:08 by keisuke          ###   ########.fr       */
+/*   Created: 2022/03/08 17:32:40 by keisuke           #+#    #+#             */
+/*   Updated: 2022/03/08 17:36:47 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
 	size_t	i;
 	size_t	j;
 
-	i = ft_strlen(src);
-	if (size != 0)
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	if (!(str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+		return (NULL);
+	while (s1[i])
 	{
-		if (i < size)
-			j = i;
-		else
-			j = size - 1;
-		ft_memcpy(dest, src, j);
-		dest[j] = '\0';
+		str[i] = s1[i];
+		i++;
 	}
-	return (i);
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	return (str);
 }

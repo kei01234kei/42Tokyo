@@ -6,13 +6,13 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:34:57 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/08 17:01:14 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 02:02:31 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 

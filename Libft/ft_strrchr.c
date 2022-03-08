@@ -6,13 +6,13 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:17:29 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/08 17:18:32 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 02:04:24 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*p;
 

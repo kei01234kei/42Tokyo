@@ -6,13 +6,13 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:47:09 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/08 17:00:37 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 00:57:32 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*s2;
 	size_t	i;

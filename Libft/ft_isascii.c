@@ -6,13 +6,13 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:58:58 by keisuke           #+#    #+#             */
-/*   Updated: 2022/02/14 02:49:57 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 00:49:02 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

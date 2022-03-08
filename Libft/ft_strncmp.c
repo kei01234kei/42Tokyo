@@ -6,13 +6,13 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:35:21 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/08 17:02:17 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 02:03:23 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdlib.h"
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
