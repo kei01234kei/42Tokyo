@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 02:43:58 by keisuke           #+#    #+#             */
-/*   Updated: 2022/02/14 02:44:54 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/08 13:39:11 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 typedef struct s_list
 {
