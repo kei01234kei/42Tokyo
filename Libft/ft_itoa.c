@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:22:41 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:41:03 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,25 @@ static int	digit_count(long int i)
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	int			i;
+	char	*str;
+	size_t	digit;
+	int		sign;
 
-	i = digit_count(n);
-	str = malloc(i * sizeof(char) + 1);
-	if (!str)
-		return (0);
-	str[i--] = 0;
-	if (n == 0)
-	{
-		str = ft_calloc(2, sizeof(char));
-		str[0] = 48;
-	}
+	sign = 1;
 	if (n < 0)
+		sign = -1;
+	digit = ft_get_digit(n);
+	str = (char *)malloc((digit + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	str[digit] = '\0';
+	while (digit > 0)
 	{
+		str[digit - 1] = n % 10 * sign + '0';
+		n /= 10;
+		digit --;
+	}
+	if (sign == -1)
 		str[0] = '-';
-		n = n * -1;
-	}
-	while (n > 0)
-	{
-		str[i--] = n % 10 + '0';
-		n = n / 10;
-	}
 	return (str);
 }
