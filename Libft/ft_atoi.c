@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:26:37 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 03:20:31 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:02:47 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	long int	i;
+	int			i;
 	int			sign;
-	int			num;
+	long int	num;
 
 	i = 0;
 	sign = 1;
