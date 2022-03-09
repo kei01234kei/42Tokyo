@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:43:04 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:58:19 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,35 @@ static int	digit_count(long int i)
 	return (count);
 }
 
+static void	change_mark(char *str, long int *nb)
+{
+	str[0] = '-';
+	*nb = *nb * -1;
+}
+
 char	*ft_itoa(int n)
 {
-	char	*str;
-	size_t	digit;
-	int		sign;
+	char		*str;
+	int			i;
+	long int	nb;
 
-	sign = 1;
-	if (n < 0)
-		sign = -1;
-	digit = digit_count(n);
-	str = (char *)malloc((digit + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	str[digit] = '\0';
-	while (digit > 0)
+	nb = n;
+	i = digit_count(nb);
+	str = malloc(i * sizeof(char) + 1);
+	if (!str)
+		return (0);
+	str[i--] = 0;
+	if (nb == 0)
 	{
-		str[digit - 1] = n % 10 * sign + '0';
-		n /= 10;
-		digit --;
+		str = ft_calloc(2, sizeof(char));
+		str[0] = 48;
 	}
-	if (sign == -1)
-		str[0] = '-';
+	if (nb < 0)
+		change_mark(str, &nb);
+	while (nb > 0)
+	{
+		str[i--] = nb % 10 + '0';
+		nb = nb / 10;
+	}
 	return (str);
 }

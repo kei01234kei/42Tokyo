@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 16:26:37 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:13:27 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 12:03:14 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	ft_atoi(const char *str)
 	{
 		num = num * 10 + (str[i] - '0');
 		i++;
-		if (num > (long int)INT_MIN * -1 && num == -1)
+		if (num > (long int)INT_MIN * -1 && sign == -1)
 			return (0);
-		if (num > (long int)INT_MAX && num == 1)
+		if (num > (long int)INT_MAX && sign == 1)
 			return (-1);
 	}
 	return ((int)num * sign);
