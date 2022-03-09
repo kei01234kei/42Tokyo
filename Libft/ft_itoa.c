@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:11:47 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:22:41 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ char	*ft_itoa(int n)
 {
 	char		*str;
 	int			i;
-	long int	n;
 
 	i = digit_count(n);
 	str = malloc(i * sizeof(char) + 1);
 	if (!str)
 		return (0);
-	str[i--] = '\0';
+	str[i--] = 0;
 	if (n == 0)
 	{
 		str = ft_calloc(2, sizeof(char));
-		str[0] = '0';
+		str[0] = 48;
 	}
 	if (n < 0)
 	{
