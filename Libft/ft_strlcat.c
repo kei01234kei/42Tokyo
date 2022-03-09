@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:51:13 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 01:40:54 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 16:41:56 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	size_t	src_len;
 	size_t	dst_len;
+	size_t	src_len;
 
-	src_len = ft_strlen(src);
-	if (dstsize == 0)
-		return (src_len);
 	dst_len = ft_strlen(dst);
-	if (dstsize <= dst_len + 1)
-		return (dstsize + src_len);
-	ft_strlcpy(dst + dst_len, src, dstsize - dst_len);
+	src_len = ft_strlen(src);
+	dst += dst_len;
+	if (dstsize > dst_len)
+		ft_strlcpy(dst, src, dstsize - dst_len);
+	if (dstsize < dst_len)
+		return (src_len + dstsize);
 	return (dst_len + src_len);
 }

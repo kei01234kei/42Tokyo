@@ -5,78 +5,68 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 08:07:47 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:17:06 by keisuke          ###   ########.fr       */
+/*   Created: 2022/03/09 23:21:06 by keisuke           #+#    #+#             */
+/*   Updated: 2022/03/10 01:11:49 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	div_counter(char const *s, char c)
+static size_t	get_list_size(const char *s, char c)
 {
-	int	i;
-	int	counter;
+	size_t	count;
 
-	counter = 0;
-	if (s[0] && s[0] != c)
-		counter++;
+	count = 0;
+	while (*s && s++)
+	{
+		while (*s != c && *s)
+			s++;
+		count++;
+		while (*s == c && *s)
+			s++;
+	}
+	return (count);
+}
+
+static int	fill_list(char const *s, char c, char **list)
+{
+	size_t	i;
+	size_t	len;
+
 	i = 0;
-	while (i < (int)ft_strlen(s))
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1])
-			counter++;
-		i++;
+		len = 0;
+		while (*s != c && *s && ++s)
+			len++;
+		list[i] = malloc(len + 1);
+		if (!list[i])
+		{
+			while (i)
+				free(list[--i]);
+			free(list);
+			return (1);
+		}
+		ft_strlcpy(list[i++], s - len, len + 1);
+		while (*s == c && *s)
+			s++;
 	}
-	return (counter);
+	list[i] = 0;
+	return (0);
 }
 
-static char	*segmentator(char const *s, char c, int i)
+char	**ft_split(const char *s, char c)
 {
-	int		j;
-	int		k;
-	char	*str;
-
-	j = i;
-	while (s[i] && s[i] != c)
-		i++;
-	str = (char *)malloc(sizeof(char) * ((i - j) + 1));
-	if (!str)
-		return (NULL);
-	k = 0;
-	while (j != i)
-	{
-		str[k] = s[j];
-		k++;
-		j++;
-	}
-	str[k] = '\0';
-	return (str);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**array;
-	int		i;
-	int		j;
+	char	**list;
 
 	if (!s)
 		return (NULL);
-	array = (char **)malloc(sizeof(char *) * (div_counter(s, c) + 1));
-	if (!array)
+	while (*s == c && *s)
+		s++;
+	list = (char **)malloc(sizeof(char *) * (get_list_size(s, c) + 1));
+	if (!list)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (i <= (int)ft_strlen(s) && div_counter(s, c))
-	{
-		if (ft_strlen(segmentator(s, c, i)))
-		{
-			array[j] = segmentator(s, c, i);
-			i += (ft_strlen(array[j]) + 1);
-			j++;
-		}
-		else
-			i++;
-	}
-	array[j] = NULL;
-	return (array);
+	if (fill_list(s, c, list))
+		return (NULL);
+	return (list);
 }

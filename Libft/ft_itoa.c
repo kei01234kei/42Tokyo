@@ -6,59 +6,52 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:58:19 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 17:21:04 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	digit_count(long int i)
+static char	*int_to_str(int n, int pow_ten, short sign, char *out)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	if (i < 0)
+	i = 0;
+	if (sign == -1)
+		i++;
+	while (pow_ten)
 	{
-		i *= -1;
-		count++;
+		out[i++] = (char)(n / pow_ten * sign + '0');
+		n %= pow_ten;
+		pow_ten /= 10;
 	}
-	while (i > 0)
-	{
-		i /= 10;
-		count++;
-	}
-	return (count);
-}
-
-static void	change_mark(char *str, long int *nb)
-{
-	str[0] = '-';
-	*nb = *nb * -1;
+	out[i] = '\0';
+	return (out);
 }
 
 char	*ft_itoa(int n)
 {
-	char		*str;
-	int			i;
-	long int	nb;
+	size_t	i;
+	char	*out;
+	short	sign;
+	int		pow_ten;
 
-	nb = n;
-	i = digit_count(nb);
-	str = malloc(i * sizeof(char) + 1);
-	if (!str)
-		return (0);
-	str[i--] = 0;
-	if (nb == 0)
+	i = 1;
+	pow_ten = 1;
+	sign = 0;
+	if (n < 0)
+		sign++;
+	while (n / pow_ten / 10 && i++)
+		pow_ten *= 10;
+	out = (char *)malloc(i + sign + 1);
+	if (!out)
+		return (NULL);
+	if (sign == 1)
 	{
-		str = ft_calloc(2, sizeof(char));
-		str[0] = 48;
+		out[0] = '-';
+		sign = -1;
 	}
-	if (nb < 0)
-		change_mark(str, &nb);
-	while (nb > 0)
-	{
-		str[i--] = nb % 10 + '0';
-		nb = nb / 10;
-	}
-	return (str);
+	else
+		sign++;
+	return (int_to_str(n, pow_ten, sign, out));
 }
