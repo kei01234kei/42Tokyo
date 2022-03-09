@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:37:39 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 00:51:55 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:14:40 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	get_size(char const *s1, char const *set)
 	return (size - count);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		count;
 	int		size;
@@ -52,7 +52,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	if (count == (int)ft_strlen(s1))
 		return (ft_strdup(""));
 	size = get_size(s1 + count, set) + 1;
-	if (!(str = (char *)malloc((size) * sizeof(char))))
+	str = (char *)malloc((size) * sizeof(char));
+	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1 + count, size);
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:23:35 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 02:01:14 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:16:40 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < (size_t)start)
 		return (ft_strdup(""));
-	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
 	while (i < len)
 	{

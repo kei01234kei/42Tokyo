@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:07:47 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 08:16:17 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:17:06 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	div_counter(char const *s, char c)
 {
-	int i;
-	int counter;
+	int	i;
+	int	counter;
 
 	counter = 0;
 	if (s[0] && s[0] != c)
@@ -30,7 +30,7 @@ static int	div_counter(char const *s, char c)
 	return (counter);
 }
 
-static char *segmentator(char const *s, char c, int i)
+static char	*segmentator(char const *s, char c, int i)
 {
 	int		j;
 	int		k;

@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:36:58 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 09:43:48 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:18:31 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int num;
+	unsigned int	num;
 
 	num = n;
 	if (n < 0)
