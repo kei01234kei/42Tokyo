@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:41:03 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/09 11:43:04 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	sign = 1;
 	if (n < 0)
 		sign = -1;
-	digit = ft_get_digit(n);
+	digit = digit_count(n);
 	str = (char *)malloc((digit + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
