@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 18:14:29 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 08:41:20 by keisuke          ###   ########.fr       */
+/*   Created: 2022/03/09 09:36:58 by keisuke           #+#    #+#             */
+/*   Updated: 2022/03/09 09:43:48 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	size_t	j;
+	unsigned int num;
 
-	i = ft_strlen(src);
-	if (dstsize != 0)
+	num = n;
+	if (n < 0)
 	{
-		if (i < dstsize)
-			j = i;
-		else
-			j = dstsize - 1;
-		ft_memcpy(dst, src, j);
-		dst[j] = '\0';
+		ft_putchar_fd('-', fd);
+		num = (unsigned int)(n * -1);
 	}
-	return (i);
+	if (num > 9)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd((char)(num % 10 + '0'), fd);
 }
