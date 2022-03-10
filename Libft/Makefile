@@ -20,7 +20,7 @@ OBJS = $(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
 
 CC = gcc
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
@@ -28,9 +28,6 @@ $(NAME): $(OBJS)
 	$(AR) $@ $^
 
 all: $(NAME)
-
-.c.o:
-	$(CC) $(CFLAG) -c $< -o $@
 
 bonus: $(BOBJS)
 
