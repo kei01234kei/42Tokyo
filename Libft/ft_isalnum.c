@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 17:46:23 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 00:48:40 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/10 09:13:13 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
-	else
-		return (0);
+	return (ft_isdigit(c) || ft_isalpha(c));
 }

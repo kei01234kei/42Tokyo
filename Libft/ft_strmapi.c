@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:00:07 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 11:16:00 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/10 09:11:27 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (!s)

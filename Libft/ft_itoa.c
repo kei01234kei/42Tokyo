@@ -6,7 +6,7 @@
 /*   By: keisuke <keisuke.130@icloud.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 08:21:17 by keisuke           #+#    #+#             */
-/*   Updated: 2022/03/09 17:21:04 by keisuke          ###   ########.fr       */
+/*   Updated: 2022/03/10 09:15:02 by keisuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*int_to_str(int n, int pow_ten, short sign, char *out)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (sign == -1)
