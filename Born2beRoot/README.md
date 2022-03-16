@@ -2,6 +2,10 @@
 
 ## 用語解説
 
+### aptitudeとaptの違い
+
+
+
 ### viとvimの違い
 
 vi = vimではない。
@@ -28,9 +32,7 @@ VMを作成し、ホストOSのターミナルから操作できるようにす�
 
 ```terminal
 $ su
-```
 
-```terminal
 # apt install vim sudo
 ```
 
@@ -91,5 +93,5 @@ xterm-256color
 linux
 ```
 
-ターミナルの種類がlinuxのときは`LANG=C`、つまり英語表記に、それ以外の時は`LANG=ja_JP.UTF-8`、つまり日本語表記にしてねということである。
+ターミナルの種類がlinuxのときは`LANG=C`、つまり英語表記に、それ以外の時は`LANG=ja_JP.UTF-8`、つまり日本語表記にしてね、ということである。
 実際、VirtualBoxからdebianにログインすると英語表記になるが、Macのターミナルからログインすると日本語表記になる。
