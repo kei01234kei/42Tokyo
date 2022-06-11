@@ -6,7 +6,7 @@
 #    By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/11 11:49:07 by kishigam          #+#    #+#              #
-#    Updated: 2022/06/11 11:52:48 by kishigam         ###   ########.fr        #
+#    Updated: 2022/06/11 13:59:36 by kishigam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,5 +19,35 @@ INCS_DIR	= ./includes
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
+INCS		= -I$(INCS_DIR) -I$(LIBFT_DIR)
+LFLAGS		= -L$(LIBFT_DIR) -lft
 
-.PHONY:		all clean fclean re bonus
+SRC_DIR		= ./srcs
+SRCS		= $(SRC_DIR)/ft_printf.c \
+			$(SRC_DIR)/ft_setting.c
+
+OBJS		= $(SRCS:.c=.o)
+
+all:		$(NAME)
+
+.c.o:
+			$(cc) $(CFLAGS) $(INCS) -c $^ -o $(^:.c=.o)
+
+$(NAME):	$(OBJS) $(LIBFT)
+			ar -rcs $(NAME) $(OBJS)
+
+$(LIBFT):
+			make -C $(LIBFT_DIR)
+			cp $(LIBFT) $(NAME)
+
+clean:
+			make clean -C $(LIBFT_DIR)
+			rm -f $(OBJS)
+
+fclean:		clean
+			make fclean -C $(LIBFT_DIR)
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY:		all clean fclean re
