@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:58:48 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/11 23:42:59 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/12 08:19:53 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_puthex(size_t num, char c)
 
 	len = 0;
 	if (num >= 16)
-		len += ft_putptr((void *)(num / 16));
+		len += ft_puthex(num / 16, c);
 	if (c == 'x')
 		len += ft_putchar("0123456789abcdef"[num % 16]);
 	else if (c == 'X')
