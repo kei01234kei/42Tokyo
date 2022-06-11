@@ -6,7 +6,7 @@
 #    By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/11 11:49:07 by kishigam          #+#    #+#              #
-#    Updated: 2022/06/11 13:59:36 by kishigam         ###   ########.fr        #
+#    Updated: 2022/06/11 15:06:56 by kishigam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ LIBFT		= $(LIBFT_DIR)/libft.a
 
 INCS_DIR	= ./includes
 
+SRC_DIR		= ./srcs
+SRCS		= $(SRC_DIR)/ft_printf.c \
+			$(SRC_DIR)/ft_setting.c
+
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 INCS		= -I$(INCS_DIR) -I$(LIBFT_DIR)
 LFLAGS		= -L$(LIBFT_DIR) -lft
-
-SRC_DIR		= ./srcs
-SRCS		= $(SRC_DIR)/ft_printf.c \
-			$(SRC_DIR)/ft_setting.c
 
 OBJS		= $(SRCS:.c=.o)
 
