@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:58:48 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/12 08:19:53 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/12 08:37:58 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	ft_putuint(unsigned int num)
 	return (len);
 }
 
-int	ft_puthex(size_t num, char c)
+int	ft_puthex(unsigned int num, char c)
 {
 	int	len;
 
