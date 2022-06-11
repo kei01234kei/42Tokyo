@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 20:34:28 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/11 11:28:32 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:08:30 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 int	ft_parse(char c, va_list format)
 {
 	if (c == 'c')
-		return (1);
+		return (ft_putchar(va_arg(format, int)));
 	else if (c == 's')
-		return (1);
-	else if (c == 'p')
-		return (1);
+		return (ft_putstr(va_arg(format, char *)));
+	else if (c == 'p') {
+		ft_putstr("0x");
+		return (ft_putptr(va_arg(format, void*)) + 2);
+	}
 	else if (c == 'd' || c == 'i')
-		return (1);
+		return (ft_putint(va_arg(format, int)));
 	else if (c == 'u')
-		return (1);
-	else if (c == 'x')
-		return (1);
-	else if (c == 'X')
-		return (1);
+		return (ft_putuint(va_arg(format, unsigned int)));
+	else if (c == 'x' || c == 'X')
+		return (ft_puthex(va_arg(format, size_t), c));
 	else if (c == '%')
-		return (1);
+		return (ft_putchar('%'));
 	return (0);
 }
 
