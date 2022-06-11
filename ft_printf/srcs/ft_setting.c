@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:58:48 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/11 23:07:54 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/11 23:42:59 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_putchar(char c)
 int	ft_putstr(char *str)
 {
 	if (!str)
-		return (0);
+		return (ft_putstr("(null)"));
 	return (write(1, str, ft_strlen(str)));
 }
 
