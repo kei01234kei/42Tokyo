@@ -6,7 +6,7 @@
 #    By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/11 11:49:07 by kishigam          #+#    #+#              #
-#    Updated: 2022/06/11 18:20:49 by kishigam         ###   ########.fr        #
+#    Updated: 2022/06/12 13:55:53 by kishigam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ CFLAGS		= -Wall -Wextra -Werror
 INCS		= -I$(INCS_DIR) -I$(LIBFT_DIR)
 LFLAGS		= -L$(LIBFT_DIR) -lft
 LIB			= ar -rcs
-LIB1		= ranlib
 RM			= /bin/rm -f
 
 SRC_DIR		= ./srcs
