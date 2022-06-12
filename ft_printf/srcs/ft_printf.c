@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 20:34:28 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/12 08:55:51 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/12 11:41:53 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	ft_parse(char c, va_list format)
 		return (ft_putchar(va_arg(format, int)));
 	else if (c == 's')
 		return (ft_putstr(va_arg(format, char *)));
-	else if (c == 'p') {
+	else if (c == 'p')
+	{
 		ft_putstr("0x");
-		return (ft_putptr(va_arg(format, void*)) + 2);
+		return (ft_putptr(va_arg(format, void *)) + 2);
 	}
 	else if (c == 'd' || c == 'i')
 		return (ft_putint(va_arg(format, int)));
