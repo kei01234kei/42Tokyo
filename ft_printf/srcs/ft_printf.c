@@ -6,11 +6,25 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 20:34:28 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/12 11:41:53 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/12 12:40:22 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+int	ft_puthex(unsigned int num, char c)
+{
+	int	len;
+
+	len = 0;
+	if (num >= 16)
+		len += ft_puthex(num / 16, c);
+	if (c == 'x')
+		len += ft_putchar("0123456789abcdef"[num % 16]);
+	else if (c == 'X')
+		len += ft_putchar("0123456789ABCDEF"[num % 16]);
+	return (len);
+}
 
 int	ft_parse(char c, va_list format)
 {
@@ -52,7 +66,8 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 			len += write(1, &format[i], 1);
-		i++;
+		if (format[i])
+			i++;
 	}
 	va_end(ap);
 	return (len);

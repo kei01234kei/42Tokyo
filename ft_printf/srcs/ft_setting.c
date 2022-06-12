@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 13:58:48 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/12 08:37:58 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/06/12 12:40:16 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,5 @@ int	ft_putuint(unsigned int num)
 	if (num >= 10)
 		len += ft_putuint(num / 10);
 	len += write(1, &"0123456789"[num % 10], 1);
-	return (len);
-}
-
-int	ft_puthex(unsigned int num, char c)
-{
-	int	len;
-
-	len = 0;
-	if (num >= 16)
-		len += ft_puthex(num / 16, c);
-	if (c == 'x')
-		len += ft_putchar("0123456789abcdef"[num % 16]);
-	else if (c == 'X')
-		len += ft_putchar("0123456789ABCDEF"[num % 16]);
 	return (len);
 }
