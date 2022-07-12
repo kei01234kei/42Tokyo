@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:09 by kishigam          #+#    #+#             */
-/*   Updated: 2022/06/30 16:48:27 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:36:43 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_get_line(char *save)
 	char	*line;
 
 	i = 0;
-	if (!save)
+	if (!save[i])
 		return (NULL);
 	while (save[i] && save[i] != '\n')
 		i++;
