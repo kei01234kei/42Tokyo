@@ -6,11 +6,12 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:09 by kishigam          #+#    #+#             */
-/*   Updated: 2022/07/12 10:36:43 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/12 12:30:20 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#define BUFFER_SIZE 1
 
 char	*ft_read_to_next_line(int fd, char *save)
 {
