@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:30 by kishigam          #+#    #+#             */
-/*   Updated: 2022/07/13 08:57:34 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:38:39 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
