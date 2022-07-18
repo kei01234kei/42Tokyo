@@ -6,11 +6,11 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:21 by kishigam          #+#    #+#             */
-/*   Updated: 2022/07/15 14:53:02 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:49:35 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {

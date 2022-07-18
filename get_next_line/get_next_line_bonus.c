@@ -6,11 +6,11 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:09 by kishigam          #+#    #+#             */
-/*   Updated: 2022/07/15 15:33:58 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:49:19 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_to_next_line(int fd, char *save)
 {
