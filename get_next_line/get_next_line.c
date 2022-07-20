@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:05:09 by kishigam          #+#    #+#             */
-/*   Updated: 2022/07/13 10:29:55 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/07/19 08:42:42 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_read_to_next_line(int fd, char *save)
 			break ;
 		buf[len] = '\0';
 		save = ft_strjoin(save, buf);
+		if (!save)
+			return (NULL);
 	}
 	free(buf);
 	return (save);
