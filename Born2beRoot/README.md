@@ -17,22 +17,60 @@ shasum debian.vdi
 
 ### Project overview
 
-- 仮想マシンはどのように機能するのか。</br>
+- 仮想マシンはどのように機能するのか。
+
   仮想マシンとは、仮想化技術を利用して、コンピューター内にもうひとつのコンピューターを再現する技術のこと。ホストマシンとゲストマシン（仮想マシン）とを仮想的に切り分けることが可能になる。OS自体を破壊しかねないスクリプトやウイルスに感染する危険性の高いテストを行うときに、仮想マシンを使うことでホストマシンに影響を及ぼすことなく、安全にテストを行うことができる。
 
-- CentOSとDebianの基本的な違い。</br>
+- CentOSとDebianの基本的な違い。
+
   Linuxの系統がそもそも違う。CentOSはFedoraという系統のOSであり、 Fedora系とDebian系という時点でOSの系統が違う。
   [参照](https://gigazine.net/news/20060827_linux_distributions)</br>
   Fedora系とDebian系の大きな違いはパッケージマネージャーである。Fedoraはrpmを、Debianはaptをパッケージ管理に使用している。</br>
   その他にも、CentOSは有償のRHEL(Red Hat Enterprise Linux)から商標を除去しており、無償を実現しているなどの特徴もある。
 
-- 仮想マシンの使用目的。</br>
+- 仮想マシンの使用目的。
+
   **「仮想マシンはどのように機能するのか。」** 参照。
 
-- aptitudeとaptの違いは何か。また、APPArmorとは何か。</br>
+- aptitudeとaptの違いは何か。また、APPArmorとは何か。
+
   aptはaptitudeの派生、進化版。aptitudeはインストールや削除したいパッケージを対話的に選ぶことができ、aptよりもよりユーザーフレンドリー（人によると思いますが）でグラフィカルな方法でパッケージをマネジメントすることができる。</br>
   ユーザがプロセス、ファイル、システムデバイスといったリソースへアクセスする権限を全て自由に制御できず、管理者から一定の強制を受ける、強制アクセス制御(MAC)を実行するためのプログラムがAPPArmorである。</br>
   APPArmorと似たものとして、SELinuxがある。APPArmorはUbuntuやSUSE Linux、SELinuxはRHELやCentOSなどで主に使われている。
+
+### Simple setup
+
+- UFWサービスがスタートしているかを確認する。
+
+  UFWサービスのインストールが必要な場合
+
+  ```bash
+  $ su -
+  $ apt install ufw
+  $ ufw enable
+  $ reboot # 再起動が必要
+  ```
+
+  UFWサービスがスタート（アクティブ）になっているかの確認
+
+  ```bash
+  $ systemctl status ufw
+  ```
+
+- SSHサービスがスタートしているかを確認する。
+
+  SSHサービスのインストールが必要な場合
+
+  ```bash
+  $ su -
+  $ apt install openssh-server
+  ```
+
+  SSHサービスがスタート（アクティブ）になっているかの確認
+
+  ```bash
+  $ systemctl status sshd
+  ```
 
 ## 用語解説
 
