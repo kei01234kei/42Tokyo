@@ -45,7 +45,7 @@ sudo useradd -m kishigam
 ここにsudoコマンドのlogをどこに保存していいくか等を記述していく
 /etc/sudoers.d/任意のファイル名
 
-// ufwのステータス状況を確認する
+// ufwのステータス状況（ポートの開放状況）を確認する
 sudo ufw status
 
 ポート8080を許可する
