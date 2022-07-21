@@ -42,7 +42,7 @@ shasum debian.vdi
 
 - UFWサービスがスタートしているかを確認する。
 
-  UFWサービスのインストールが必要な場合
+  UFWサービスのインストールが必要な場合。
 
   ```bash
   $ su -
@@ -51,7 +51,7 @@ shasum debian.vdi
   $ reboot # 再起動が必要
   ```
 
-  UFWサービスがスタート（アクティブ）になっているかの確認
+  UFWサービスがスタート（アクティブ）になっているかの確認。
 
   ```bash
   $ systemctl status ufw
@@ -59,14 +59,14 @@ shasum debian.vdi
 
 - SSHサービスがスタートしているかを確認する。
 
-  SSHサービスのインストールが必要な場合
+  SSHサービスのインストールが必要な場合。
 
   ```bash
   $ su -
   $ apt install openssh-server
   ```
 
-  SSHサービスがスタート（アクティブ）になっているかの確認
+  SSHサービスがスタート（アクティブ）になっているかの確認。
 
   ```bash
   $ systemctl status sshd
