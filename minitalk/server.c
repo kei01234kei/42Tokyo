@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:12:36 by kishigam          #+#    #+#             */
-/*   Updated: 2022/08/28 18:07:29 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/08/28 18:21:20 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(void)
 {
 	struct sigaction	t_sigaction;
 
-	ft_putchar_fd("Server PID: ", 1);
+	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
 	t_sigaction.sa_sigaction = action;
