@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:13:36 by kishigam          #+#    #+#             */
-/*   Updated: 2022/08/29 00:33:34 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/08/29 01:11:36 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,25 @@ static void	mt_kill(int pid, char *str)
 	}
 }
 
+static int	str_is_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	struct sigaction	s_sigaction;
 
-	if (argc != 3 || !ft_strlen(argv[2]))
+	if (argc != 3 || !str_is_digit(argv[1]))
 		return (1);
 	ft_putstr_fd("Sent    : ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
