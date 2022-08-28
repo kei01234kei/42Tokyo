@@ -6,13 +6,11 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:13:36 by kishigam          #+#    #+#             */
-/*   Updated: 2022/08/28 18:09:31 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/08/29 00:33:34 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "Libft/libft.h"
 
 static void	action(int sig, siginfo_t *info, void *context)
@@ -76,4 +74,3 @@ int	main(int argc, char **argv)
 		pause();
 	return (0);
 }
-
