@@ -6,34 +6,44 @@
 #    By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 00:28:10 by kishigam          #+#    #+#              #
-#    Updated: 2022/08/29 00:28:11 by kishigam         ###   ########.fr        #
+#    Updated: 2022/08/29 23:59:54 by kishigam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = server.c client.c
-OBJECTS = $(SOURCES:.c=.o)
+NAME = minitalk
 
-CC = gcc
+NAME_SERVER = server
+NAME_CLIENT = client
+
+LIBFT_DIR	= ./libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+SRCS = server.c client.c
+OBJS = $(SRCS:.c=.o)
+
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: server client
+all: $(NAME)
+
+$(NAME): $(NAME_CLIENT) $(NAME_SERVER)
 
 bonus: server client
 
-server: server.o Libft
+$(NAME_SERVER): server.o $(LIBFT)
 	$(CC) -o $@ $< -LLibft -lft
 
-client: client.o Libft
+$(NAME_CLIENT): client.o $(LIBFT)
 	$(CC) -o $@ $< -LLibft -lft
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
 
-Libft:
+$(LIBFT):
 	make -C Libft
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(OBJS)
 	make -C Libft clean
 	
 fclean: clean
@@ -41,4 +51,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus Libft clean fclean re
+.PHONY: $(NAME) all bonus Libft clean fclean re
