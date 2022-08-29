@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 18:13:36 by kishigam          #+#    #+#             */
-/*   Updated: 2022/08/29 01:11:36 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/08/30 00:55:47 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	action(int sig, siginfo_t *info, void *context)
 {
 	static int	received = 0;
 
-	(void)*info;
+	(void)info;
 	(void)context;
 	if (sig == SIGUSR1)
 		++received;
@@ -29,7 +29,20 @@ static void	action(int sig, siginfo_t *info, void *context)
 	}
 }
 
-static void	mt_kill(int pid, char *str)
+static void	send_finish_signal(int pid)
+{
+	int	i;
+
+	i = 8;
+	while (i--)
+	{
+		if (kill(pid, SIGUSR1) == -1)
+			exit(1);
+		usleep(100);
+	}
+}
+
+static void	kill_server(int pid, char *str)
 {
 	int		i;
 	char	c;
@@ -41,25 +54,28 @@ static void	mt_kill(int pid, char *str)
 		while (i--)
 		{
 			if (c >> i & 1)
-				kill(pid, SIGUSR2);
+			{
+				if (kill(pid, SIGUSR2) == -1)
+					exit(1);
+			}
 			else
-				kill(pid, SIGUSR1);
+			{
+				if (kill(pid, SIGUSR1) == -1)
+					exit(1);
+			}
 			usleep(100);
 		}
 	}
-	i = 8;
-	while (i--)
-	{
-		kill(pid, SIGUSR1);
-		usleep(100);
-	}
+	send_finish_signal(pid);
 }
 
-static int	str_is_digit(char *str)
+static int	str_is_plus_num(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
+	if (str[i] == '\0')
+		return (0);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -71,9 +87,13 @@ static int	str_is_digit(char *str)
 
 int	main(int argc, char **argv)
 {
+	size_t				pid;
 	struct sigaction	s_sigaction;
 
-	if (argc != 3 || !str_is_digit(argv[1]))
+	if (argc != 3 || !str_is_plus_num(argv[1]))
+		return (1);
+	pid = ft_atoi(argv[1]);
+	if (pid <= 1 || kill(pid, 0) == -1)
 		return (1);
 	ft_putstr_fd("Sent    : ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
@@ -83,7 +103,7 @@ int	main(int argc, char **argv)
 	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);
-	mt_kill(ft_atoi(argv[1]), argv[2]);
+	kill_server(ft_atoi(argv[1]), argv[2]);
 	while (1)
 		pause();
 	return (0);
