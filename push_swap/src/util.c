@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:08:18 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/15 07:43:48 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:07:29 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int	exist_duplicates(char **args, long tmp, size_t i)
 	i++;
 	while (args[i])
 	{
-		if (ft_atol(args[i] == tmp))
+		if (ft_atol(args[i]) == tmp)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	arg_check(int argc, char **argv)
+int	check_arg_illegality(int argc, char **argv)
 {
 	size_t		i;
 	char		**args;
@@ -56,7 +56,7 @@ int	arg_check(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	else if (argc == 2)
-		args = ft_split(argv[1], ' '); // なぜ' 'でsplitしているかは未解明
+		args = ft_split(argv[1], ' ');
 	else
 	{
 		i = 1;
@@ -65,14 +65,26 @@ int	arg_check(int argc, char **argv)
 	while (args[i])
 	{
 		tmp = ft_atol(args[i]);
-		if (!is_numeric(args[i]))
-			write_error("Error");
-		if (exist_duplicates(args, tmp, i))
-			write_error("Error");
-		if (tmp < -2147483648 || tmp > 2147483647)
-			error_message("Error");
+		if (!is_numeric(args[i]) || exist_duplicates(args, tmp, i)
+			|| (tmp < -2147483648 || tmp > 2147483647))
+			return (1);
 		i++;
 	}
 	if (argc == 2)
-		free(args); // なぜargc==のときだけfreeしているのかは未解明
+		free(args);
+	return (0);
+}
+
+int	is_stack_sorted(t_stack **stack)
+{
+	t_stack	*head;
+
+	head = *stack;
+	while (head && head->next)
+	{
+		if ((head->value) > (head->next->value))
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }

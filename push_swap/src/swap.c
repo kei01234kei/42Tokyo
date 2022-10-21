@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 06:09:43 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/20 06:49:02 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/21 09:37:47 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	sa(t_stack **a, int is_output)
 	t_stack	*head;
 	t_stack	*next;
 
+	head = *a;
+	next = head->next;
 	if (stack_size(*a) < 2
 		|| *a == NULL || head->next == NULL)
 		return (1);
-	head = *a;
-	next = head->next;
 
 	tmp_value = head->value;
 	head->value = next->value;
@@ -43,11 +43,11 @@ int	sb(t_stack **b, int is_output)
 	t_stack	*head;
 	t_stack	*next;
 
+	head = *b;
+	next = head->next;
 	if (stack_size(*b) < 2
 		|| *b == NULL || head->next == NULL)
 		return (1);
-	head = *b;
-	next = head->next;
 
 	tmp_value = head->value;
 	head->value = next->value;
