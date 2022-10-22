@@ -6,13 +6,13 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:18:55 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/21 09:38:54 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:00:31 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	place_of_min_index(t_stack **stack, int beginning_value) // 最小のindex(i)を返す。この関数が何に使われるかは不明。
+int	place_of_min_index(t_stack **stack, int beginning_value)
 {
 	int		min;
 	t_stack	*head;
@@ -28,7 +28,7 @@ int	place_of_min_index(t_stack **stack, int beginning_value) // 最小のindex(i
 	return (min);
 }
 
-int	place_of_max_index(t_stack **stack, int beginning_value) // 最小のindex(i)を返す。この関数が何に使われるかは不明。
+int	place_of_max_index(t_stack **stack, int beginning_value)
 {
 	int		max;
 	t_stack	*head;

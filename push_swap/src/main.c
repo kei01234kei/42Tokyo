@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 06:51:46 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/20 06:14:50 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:00:39 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		free_stack(b);
 		return (0);
 	}
-	stack_sorting(a, b); // 本格的なソーティング作業に入っていく
+	stack_sorting(a, b);
 	free_stack(a);
 	free_stack(b);
 	return (0);

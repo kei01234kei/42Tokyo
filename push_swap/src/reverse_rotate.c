@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 07:24:59 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/20 07:46:41 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:01:10 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	rra(t_stack **a, int is_output)
 	last = find_last_node(head);
 	while (head)
 	{
-		if (head->next->next == NULL) // 最後から2番目の要素のアドレスを見つけたいからこの条件にしている
+		if (head->next->next == NULL)
 		{
-			head->next = NULL; // 最後から2番目の要素のnextをnullにしている
+			head->next = NULL;
 			break ;
 		}
 		head = head->next;

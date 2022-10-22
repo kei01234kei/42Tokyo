@@ -6,13 +6,13 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 05:42:53 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/21 09:33:48 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:06:38 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	small_sort(t_stack **a, t_stack **b) // ソートがうまくいったかどうかで返り値を返すように変更してみるのあり
+void	small_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 
@@ -29,7 +29,7 @@ void	small_sort(t_stack **a, t_stack **b) // ソートがうまくいったか�
 
 void	stack_sorting(t_stack **a, t_stack **b)
 {
-	if ((stack_size(*a) < 4) || (stack_size(*a) == 5)) // なぜサイズが4未満か5のときで処理をわけたのか
+	if ((stack_size(*a) < 4) || (stack_size(*a) == 5))
 		small_sort(a, b);
 	else
 		radix_sort(a, b);

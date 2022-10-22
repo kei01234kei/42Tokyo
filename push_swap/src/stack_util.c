@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 08:17:15 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/21 08:07:47 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:05:58 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ t_stack	*next_indexed_elem(t_stack **stack)
 {
 	int		is_beginning;
 	t_stack	*head;
-	t_stack	*min; // この変数の存在意義がよくわからない。けどこの変数めっちゃ大切な気がする
+	t_stack	*min;
 
 	min = NULL;
-	is_beginning = 0; // 変数current_minの存在意義がよくわからんし、なぜ初期値に0を設定したのかもわからない。boolean用？？
+	is_beginning = 0;
 	head = *stack;
 	if (head)
 	{
 		while (head)
 		{
-			if ((head->i == -1) // ここからの処理よくわからんから先にすすむ
-				&& (!is_beginning || head->value < min->value)) // なぜhead->value < min->valueという条件が必要なのか
+			if ((head->i == -1)
+				&& (!is_beginning || head->value < min->value))
 			{
 				min = head;
 				is_beginning = 1;

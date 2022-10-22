@@ -6,7 +6,7 @@
 /*   By: kishigam <kishigam@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 09:05:53 by kishigam          #+#    #+#             */
-/*   Updated: 2022/10/15 10:16:34 by kishigam         ###   ########.fr       */
+/*   Updated: 2022/10/22 09:00:50 by kishigam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*create_new_node(int value)
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
-	node->i = -1; // なぜindexを-1に設定したのか
+	node->i = -1;
 	node->value = value;
 	node->next = NULL;
 	return (node);
