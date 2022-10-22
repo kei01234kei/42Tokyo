@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 INCLUDE_PATH = include/
 SRC_PATH = src/
 LIBFT_PATH = Libft/
